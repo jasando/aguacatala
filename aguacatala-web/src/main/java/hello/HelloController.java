@@ -14,4 +14,34 @@ public class HelloController {
         model.addAttribute("name", name);
         return "index";
     }
+    /*
+    @RequestMapping(value="/user", method=RequestMethod.POST)
+    public String user_form(String firstname, String lastname, String company, String usrtel, String email, String pwd, Model model) {
+        model.addAttribute("firstname", firstname);
+        model.addAttribute("lastname", lastname);
+        model.addAttribute("company", company);
+        model.addAttribute("usrtel", usrtel);
+        model.addAttribute("email", email);
+        model.addAttribute("pwd", pwd);
+        return "user_form";
+    }
+    
+    @RequestMapping(value="/email", method=RequestMethod.POST)
+    public String email(String name, String from, String subject, String desc,  Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("from", from);
+        model.addAttribute("subject", subject);
+        model.addAttribute("desc", desc);
+        return "email";
+    }
+    
+    @RequestMapping(value="/campaign", method=RequestMethod.POST)
+    public String campaign(String name, String desc,  Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("desc", desc);
+        return "campaign";
+    }
+    */
+    
+    
 }
