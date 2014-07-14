@@ -22,7 +22,7 @@
             	<version>3.2.0</version>
             	<configuration>
                 <propertyFile>src/main/liquibase/liquibase.properties</propertyFile>
-                <changeLogFile>src/main/liquibase/changelog.xml</changeLogFile>
+                <changeLogFile>src/main/liquibase/db-model.xml</changeLogFile>
             	</configuration>
         	</plugin>
     	</plugins>

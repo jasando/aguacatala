@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	<changeSet id="1.2" author="Alexander">
+		<createTable tableName="user">
+			<column name="id" type="int">
+				<constraints primaryKey="true" primaryKeyName="pk_user"
+					nullable="false" />
+			</column>
+			<column name="first_name" type="varchar(128)">
+				<constraints nullable="false" />
+			</column>
+			<column name="last_name" type="varchar(128)">
+				<constraints nullable="false" />
+			</column>
+			<column name="company" type="varchar(128)">
+				<constraints nullable="false" />
+			</column>
+			<column name="phone" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="varchar(128)">
+				<constraints nullable="false" />
+			</column>
+			<column name="password" type="varchar(128)">
+				<constraints nullable="false" />
+			</column>
+			<column name="birthdate" type="timestamp">
+				<constraints nullable="true" />
+			</column>
+			<column name="title" type="varchar(16)">
+				<constraints nullable="true" />
+			</column>
+			<column name="last_login" type="timestamp">
+				<constraints nullable="true" />
+			</column>
+			<column name="created_date" type="timestamp" defaultValue="now()">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<createTable tableName="campaign">
+			<column name="id" type="int">
+				<constraints primaryKey="true" primaryKeyName="pk_camp"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(64)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(256)"></column>
+		</createTable>
+
+		<createTable tableName="mail">
+			<column name="id" type="int">
+				<constraints primaryKey="true" primaryKeyName="pk_mail"
+					nullable="false" />
+			</column>
+			<column name="name_msg" type="varchar(64)"></column>
+			<column name="from" type="varchar(64)"></column>
+			<column name="subject" type="varchar(64)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(256)"></column>
+		</createTable>
+		<createTable tableName="user_campaign">
+			<column name="user_id" type="int">
+				<constraints foreignKeyName="fk_user_campaign_user"
+					referencedTableName="user" referencedColumnNames="id" nullable="false" />
+			</column>
+			<column name="campaign_id" type="int">
+				<constraints foreignKeyName="fk_users_campaign_campaign"
+					references="campaign(id)" nullable="false" />
+			</column>
+		</createTable>
+
+	</changeSet>
+
+	<changeSet id="2014.07.14.changes_on_model" author="javier.sandoval">
+		<createTable tableName="status"
+			remarks="Table for storing different system level status such as ACTIVE, DELETED, etc">
+			<column name="id" type="int">
+				<constraints primaryKey="true" primaryKeyName="pk_status"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(64)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(256)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<modifyDataType tableName="campaign" columnName="name"
+			newDataType="varchar(128)" />
+		<modifyDataType tableName="campaign" columnName="name"
+			newDataType="varchar(512)" />
+		<addColumn tableName="user">
+			<column name="status" type="int">
+				<constraints foreignKeyName="fk_user_status" references="status(id)"
+					nullable="false" />
+			</column>
+		</addColumn>
+		<addColumn tableName="campaign">
+			<column name="status" type="int">
+				<constraints foreignKeyName="fk_campaign_status"
+					references="status(id)" nullable="false" />
+			</column>
+		</addColumn>
+		<addColumn tableName="mail">
+			<column name="status" type="int">
+				<constraints foreignKeyName="fk_mail_status" references="status(id)"
+					nullable="false" />
+			</column>
+		</addColumn>
+	</changeSet>
+
+</databaseChangeLog>
