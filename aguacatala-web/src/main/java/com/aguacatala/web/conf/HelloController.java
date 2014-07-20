@@ -1,4 +1,4 @@
-package hello;
+package com.aguacatala.web.conf;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,4 +14,5 @@ public class HelloController {
         model.addAttribute("name", name);
         return "index";
     }
+
 }

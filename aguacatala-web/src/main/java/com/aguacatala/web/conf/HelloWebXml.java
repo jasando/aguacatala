@@ -1,4 +1,4 @@
-package hello;
+package com.aguacatala.web.conf;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;

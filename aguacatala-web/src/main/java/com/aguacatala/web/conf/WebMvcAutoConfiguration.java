@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package hello;
+package com.aguacatala.web.conf;
 
 import java.io.IOException;
 import java.util.Arrays;
