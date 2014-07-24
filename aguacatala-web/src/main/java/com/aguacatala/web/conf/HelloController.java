@@ -14,5 +14,23 @@ public class HelloController {
         model.addAttribute("name", name);
         return "index";
     }
+    
+    @RequestMapping(value="/user_form", method=RequestMethod.GET)
+    public String user_form(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "user_form";
+    }
+    
+    @RequestMapping(value="/email", method=RequestMethod.GET)
+    public String email(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "email";
+    }
+    
+    @RequestMapping(value="/campaign", method=RequestMethod.GET)
+    public String campaign(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "campaign";
+    }
 
 }

@@ -1,18 +1,87 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<form>
-		First name: <input type="text" name="firstname"><br> 
-		Last name: <input type="text" name="lastname"><br>
-		<br> Company: <input type="text" name="company"><br>
-		telephone: <input type="tel" name="usrtel"><br>
-		<br> E-mail : <input type="email" name="email"><br>
-		Password: <input type="password" name="pwd"><br>
-		<br> <input type="submit" value="Submit">
-	</form>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	<!--  <script src="bootstrap-3.2.0-dist/js/ie10-viewport-bug-workaround.js"></script> -->
+	<!-- <span class="label label-success">Please Sign in</span> -->
+	
+	<div class="container">
+		<form role="form" method="get" action="#">
+			<h3>
+				<span class="label label-default"> Please Sign In </span>
+			</h3>	
+			<div class="row">
+				<div class='col-sm-6'>
+					<div class="form-group">
+						<label for="InputName">First Name</label> <input type="text"
+							class="form-control" id="InputName"
+							placeholder="Enter First Name" />
+					</div>
+					<div class="form-group">
+						<label for="InputLastName">Last Name</label> <input type="text"
+							class="form-control" id="InputLastName"
+							placeholder="Enter Last Name" />
+					</div>
+					<div class="form-group">
+						<label for="InputTel">Telephone Number</label> <input type="text"
+							class="form-control" id="InputTel"
+							placeholder="Enter Phone Number" />
+					</div>
+					<div class="form-group">
+						<label for="InputEmail">Email</label> <input type="email"
+							class="form-control" id="InputEmail" placeholder="Enter Email" />
+					</div>
+
+					<div class="form-group">
+						<label>Birth Date</label>
+						<!-- <div class="row"> -->
+						<!-- <div class='col-sm-6'>  -->
+						<div class="form-group">
+							<div class='input-group date' id='datetimepicker1'>
+								<input type='text' class="form-control" /> <span
+									class="input-group-addon"><span
+									class="glyphicon glyphicon-calendar"></span> </span>
+							</div>
+						</div>
+						<!-- </div> -->
+						<!-- </div> -->
+					</div>
+					<script type="text/javascript">
+            				$(function () {
+                				$('#datetimepicker').datetimepicker();
+            				});
+        			</script>
+
+					<div class="form-group">
+						<label for="InputCompany">Company Name</label> <input type="text"
+							class="form-control" id="InputCompany"
+							placeholder="Enter Company Name" />
+					</div>
+					<div class="form-group">
+						<label for="InputTitle">Company Title</label> <input type="text"
+							class="form-control" id="InputTitle" placeholder="Enter Title" />
+					</div>
+					<div class="form-group">
+						<label for="InputPassword">Password</label> <input type="password"
+							class="form-control" id="InputPassword" placeholder="Password" />
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+
+				</div>
+			</div>
+			
+		</form>
+	</div>	
+	<!-- /container -->
+
 </body>
 </html>
